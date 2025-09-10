@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="templete_style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="pages/home.html">Home</a></li>
+        <li><a href="pages/about.html">About</a></li>
+        <li><a href="pages/media.html">Media</a></li>
+        <li><a href="pages/faq.html">FAQ</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="slider">
+      <div class="slide active">
+        <img src="images/Caesar Salad.jpg" alt="Image 1">
+        <div class="caption">Caesar Salad</div>
+      </div>
+      <div class="slide">
+        <img src="images/Caprese Salad.jpg" alt="Image 2">
+        <div class="caption">Caprese Salad</div>
+      </div>
+      <div class="slide">
+        <img src="images/Greek Salad.jpg" alt="Image 3">
+        <div class="caption">Greek Salad</div>
+      </div>
+      <div class="slide">
+        <img src="images/Pasta Salad.jpg" alt="Image 4">
+        <div class="caption">Pasta Salad</div>
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <script>
+      const slides = document.querySelectorAll('.slide');
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+
+      document.querySelector('.prev').onclick = () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      };
+
+      document.querySelector('.next').onclick = () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      };
+
+      showSlide(currentIndex);
+    </script>
+    </div>
+    <div class="adds">
+
+      <h1>Shop Add-ons</h1>
+
+      <div class="banner-container">
+        <div class="banner" data-aos="fade-up" data-aos-delay="100">
+          <h3>Breads & Snacks</h3>
+          <ul>
+            <li>Garlic bread / Sliced bread / Small baguettes</li>
+            <li>Croutons (fresh or flavored)</li>
+            <li>Small rolls or mini focaccias</li>
+          </ul>
+        </div>
+
+        <div class="banner" data-aos="fade-up" data-aos-delay="200">
+          <h3>Sauces & Small Toppings</h3>
+          <ul>
+            <li>Special sauces: balsamic, vinaigrettes, sweet chili sauce</li>
+            <li>Grated or sliced cheeses (Parmesan, Feta, Mozzarella)</li>
+            <li>Nuts, almonds, or roasted seeds</li>
+          </ul>
+        </div>
+
+        <div class="banner" data-aos="fade-up" data-aos-delay="300">
+          <h3>Drinks</h3>
+          <ul>
+            <li>Sparkling water, natural juices, iced tea</li>
+            <li>Light cocktails or smoothies</li>
+          </ul>
+        </div>
+
+        <div class="banner" data-aos="fade-up" data-aos-delay="400">
+          <h3>Small Desserts</h3>
+          <ul>
+            <li>Cut fruit</li>
+            <li>Yogurt with toppings</li>
+            <li>Small cookies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+    </script>
+
+
+
+
+
+
+  </main>
+  <footer>footer</footer>
+</body>
+
+</html>
