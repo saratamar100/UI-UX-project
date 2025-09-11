@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../templete_style.css">
+    <title>FAQ</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../../images/logo.jpg" alt="FreshLeaf Logo">
+                <span>FreshLeaf</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../pages/home/index.html">Home</a></li>
+                    <li><a href="../../pages/about/about.html">About</a></li>
+                    <li><a href="../../pages/media/media.html">Media</a></li>
+                    <li><a href="../../pages/faq/faq.html">FAQ</a></li>
+                    <li><a href="../../pages/contact/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="accordion-item">
+            <button class="accordion-button">What types of salads do you offer?</button>
+            <div class="accordion-content">
+                <p>We offer a variety of fresh salads including Caesar, Greek, Garden, and seasonal specialty salads
+                    made with local produce.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-button">Do you sell any sides or extras?</button>
+            <div class="accordion-content">
+                <p>Yes! We offer sides like garlic bread, hummus, and a selection of fresh toppings that can be added to
+                    your salad.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-button">Can I customize my salad?</button>
+            <div class="accordion-content">
+                <p>Absolutely! You can choose your base, toppings, and dressing to create your perfect salad.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-button">Do you offer delivery or takeout?</button>
+            <div class="accordion-content">
+                <p>Yes, we offer both takeout and delivery through our website and popular delivery apps.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-button">Are there any vegetarian or vegan options?</button>
+            <div class="accordion-content">
+                <p>Most of our salads are vegetarian, and many can be made vegan by choosing the appropriate toppings
+                    and dressing.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-button">What are your store hours?</button>
+            <div class="accordion-content">
+                <p>We are open Monday to Saturday from 10:00 AM to 8:00 PM, and Sunday from 11:00 AM to 6:00 PM.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Website built by: name</p>
+        <p>© All rights reserved - Salad Store 2025</p>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('.accordion-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const content = item.querySelector('.accordion-content');
+                document.querySelectorAll('.accordion-item.open').forEach(openItem => {
+                    if (openItem !== item) {
+                        const openContent = openItem.querySelector('.accordion-content');
+                        openContent.style.maxHeight = openContent.scrollHeight + "px"; 
+                        requestAnimationFrame(() => { 
+                            openContent.style.maxHeight = "0";
+                        });
+                        openItem.classList.remove('open');
+                    }
+                });
+                if (item.classList.contains('open')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    requestAnimationFrame(() => {
+                        content.style.maxHeight = "0";
+                    });
+                    item.classList.remove('open');
+                } else {
+                    item.classList.add('open');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
