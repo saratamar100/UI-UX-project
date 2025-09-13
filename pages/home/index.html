@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="../../templete_style.css">
+  <link rel="stylesheet" href="style.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Document</title>
+  <title>FreshLeaf</title>
 </head>
 
 <body>
@@ -18,10 +18,7 @@
         <img src="../../images/logo.png" alt="FreshLeaf Logo">
         <span>FreshLeaf</span>
       </div>
-      <div class="burger" id="burger">
-        ☰
-      </div>
-
+      <div class="burger" id="burger">☰</div>
       <nav id="nav-menu">
         <ul>
           <li><a href="../../pages/home/index.html">Home</a></li>
@@ -34,70 +31,32 @@
     </div>
   </header>
 
-
   <main>
     <div class="slider">
       <div class="slides-container">
         <div class="slide">
-          <img src="../../images/Caesar Salad.jpg" alt="Image 1">
+          <img src="../../images/Caesar Salad.jpg" alt="Caesar Salad">
           <div class="caption">Caesar Salad</div>
         </div>
         <div class="slide">
-          <img src="../../images/Caprese Salad.jpg" alt="Image 2">
+          <img src="../../images/Caprese Salad.jpg" alt="Caprese Salad">
           <div class="caption">Caprese Salad</div>
         </div>
         <div class="slide">
-          <img src="../../images/Greek Salad.jpg" alt="Image 3">
+          <img src="../../images/Greek Salad.jpg" alt="Greek Salad">
           <div class="caption">Greek Salad</div>
         </div>
         <div class="slide">
-          <img src="../../images/Pasta Salad.jpg" alt="Image 4">
+          <img src="../../images/Pasta Salad.jpg" alt="Pasta Salad">
           <div class="caption">Pasta Salad</div>
         </div>
       </div>
-      <button class="prev">&#10094;</button>
+      <button class="prev hidden">&#10094;</button>
       <button class="next">&#10095;</button>
     </div>
 
-    <script>
-      const slidesContainer = document.querySelector('.slides-container');
-      const slides = document.querySelectorAll('.slide');
-      let currentIndex = 0;
-
-      const prevBtn = document.querySelector('.prev');
-      const nextBtn = document.querySelector('.next');
-
-      function showSlide(index) {
-        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-        updateButtons();
-      }
-
-      function updateButtons() {
-        prevBtn.style.display = currentIndex === 0 ? "none" : "block";
-        nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "block";
-      }
-
-      prevBtn.onclick = () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          showSlide(currentIndex);
-        }
-      };
-
-      nextBtn.onclick = () => {
-        if (currentIndex < slides.length - 1) {
-          currentIndex++;
-          showSlide(currentIndex);
-        }
-      };
-
-      showSlide(currentIndex);
-    </script>
-    </div>
     <div class="adds">
-
       <h1>Shop Add-ons</h1>
-
       <div class="banner-container">
         <div class="banner" data-aos="fade-up" data-aos-delay="100">
           <h3>Breads & Snacks</h3>
@@ -107,7 +66,6 @@
             <li>Small rolls or mini focaccias</li>
           </ul>
         </div>
-
         <div class="banner" data-aos="fade-up" data-aos-delay="200">
           <h3>Sauces & Small Toppings</h3>
           <ul>
@@ -116,7 +74,6 @@
             <li>Nuts, almonds, or roasted seeds</li>
           </ul>
         </div>
-
         <div class="banner" data-aos="fade-up" data-aos-delay="300">
           <h3>Drinks</h3>
           <ul>
@@ -124,7 +81,6 @@
             <li>Light cocktails or smoothies</li>
           </ul>
         </div>
-
         <div class="banner" data-aos="fade-up" data-aos-delay="400">
           <h3>Small Desserts</h3>
           <ul>
@@ -135,14 +91,8 @@
         </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800,
-        once: true
-      });
-    </script>
   </main>
+
   <footer>
     <p>Website built by: name</p>
     <p>© All rights reserved - Salad Store 2025</p>
@@ -153,6 +103,41 @@
       <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+  <script src="../../burger_script.js"></script>
+
+  <script>
+    const slidesContainer = document.querySelector('.slides-container');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+      prevBtn.classList.toggle("hidden", currentIndex === 0);
+      nextBtn.classList.toggle("hidden", currentIndex === slides.length - 1);
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showSlide(currentIndex);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        showSlide(currentIndex);
+      }
+    });
+
+    showSlide(currentIndex);
+  </script>
 </body>
-<script src="../../burger_script.js"></script>
 </html>
