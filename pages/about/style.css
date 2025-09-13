@@ -1,6 +1,5 @@
 main {
   margin-top: 70px;
-  font-family: Arial, sans-serif;
 }
 
 .about-container {
@@ -30,12 +29,14 @@ main {
   margin-top: 0;
   font-size: 28px;
   color: #2c6e49;
+  font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .about-text p {
   font-size: 16px;
   line-height: 1.6;
   color: #333;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn {
