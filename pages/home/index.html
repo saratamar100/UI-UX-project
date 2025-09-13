@@ -15,7 +15,7 @@
   <header>
     <div class="header-container">
       <div class="logo">
-        <img src="../../images/logo.jpg" alt="FreshLeaf Logo">
+        <img src="../../images/logo.png" alt="FreshLeaf Logo">
         <span>FreshLeaf</span>
       </div>
       <nav>
@@ -32,47 +32,62 @@
 
   <main>
     <div class="slider">
-      <div class="slide active">
-        <img src="../../images/Caesar Salad.jpg" alt="Image 1">
-        <div class="caption">Caesar Salad</div>
-      </div>
-      <div class="slide">
-        <img src="../../images/Caprese Salad.jpg" alt="Image 2">
-        <div class="caption">Caprese Salad</div>
-      </div>
-      <div class="slide">
-        <img src="../../images/Greek Salad.jpg" alt="Image 3">
-        <div class="caption">Greek Salad</div>
-      </div>
-      <div class="slide">
-        <img src="../../images/Pasta Salad.jpg" alt="Image 4">
-        <div class="caption">Pasta Salad</div>
+      <div class="slides-container">
+        <div class="slide">
+          <img src="../../images/Caesar Salad.jpg" alt="Image 1">
+          <div class="caption">Caesar Salad</div>
+        </div>
+        <div class="slide">
+          <img src="../../images/Caprese Salad.jpg" alt="Image 2">
+          <div class="caption">Caprese Salad</div>
+        </div>
+        <div class="slide">
+          <img src="../../images/Greek Salad.jpg" alt="Image 3">
+          <div class="caption">Greek Salad</div>
+        </div>
+        <div class="slide">
+          <img src="../../images/Pasta Salad.jpg" alt="Image 4">
+          <div class="caption">Pasta Salad</div>
+        </div>
       </div>
       <button class="prev">&#10094;</button>
       <button class="next">&#10095;</button>
     </div>
-    <script>
-      const slides = document.querySelectorAll('.slide');
-      let currentIndex = 0;
 
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
-        });
-      }
+   <script>
+  const slidesContainer = document.querySelector('.slides-container');
+  const slides = document.querySelectorAll('.slide');
+  let currentIndex = 0;
 
-      document.querySelector('.prev').onclick = () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-      };
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
 
-      document.querySelector('.next').onclick = () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-      };
+  function showSlide(index) {
+    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+    updateButtons();
+  }
 
+  function updateButtons() {
+    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+    nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "block";
+  }
+
+  prevBtn.onclick = () => {
+    if (currentIndex > 0) {
+      currentIndex--;
       showSlide(currentIndex);
-    </script>
+    }
+  };
+
+  nextBtn.onclick = () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+  };
+
+  showSlide(currentIndex);
+</script>
     </div>
     <div class="adds">
 
