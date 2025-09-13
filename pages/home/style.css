@@ -132,3 +132,11 @@ main {
 .banner ul li {
   margin-bottom: 5px;
 }
+
+@media (max-width: 768px) {
+  .prev,
+  .next {
+    display: none;
+  }
+}
+
