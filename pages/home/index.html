@@ -18,7 +18,11 @@
         <img src="../../images/logo.png" alt="FreshLeaf Logo">
         <span>FreshLeaf</span>
       </div>
-      <nav>
+      <div class="burger" id="burger">
+        ☰
+      </div>
+
+      <nav id="nav-menu">
         <ul>
           <li><a href="../../pages/home/index.html">Home</a></li>
           <li><a href="../../pages/about/about.html">About</a></li>
@@ -29,6 +33,7 @@
       </nav>
     </div>
   </header>
+
 
   <main>
     <div class="slider">
@@ -54,40 +59,40 @@
       <button class="next">&#10095;</button>
     </div>
 
-   <script>
-  const slidesContainer = document.querySelector('.slides-container');
-  const slides = document.querySelectorAll('.slide');
-  let currentIndex = 0;
+    <script>
+      const slidesContainer = document.querySelector('.slides-container');
+      const slides = document.querySelectorAll('.slide');
+      let currentIndex = 0;
 
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
 
-  function showSlide(index) {
-    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
-    updateButtons();
-  }
+      function showSlide(index) {
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        updateButtons();
+      }
 
-  function updateButtons() {
-    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
-    nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "block";
-  }
+      function updateButtons() {
+        prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+        nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "block";
+      }
 
-  prevBtn.onclick = () => {
-    if (currentIndex > 0) {
-      currentIndex--;
+      prevBtn.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          showSlide(currentIndex);
+        }
+      };
+
+      nextBtn.onclick = () => {
+        if (currentIndex < slides.length - 1) {
+          currentIndex++;
+          showSlide(currentIndex);
+        }
+      };
+
       showSlide(currentIndex);
-    }
-  };
-
-  nextBtn.onclick = () => {
-    if (currentIndex < slides.length - 1) {
-      currentIndex++;
-      showSlide(currentIndex);
-    }
-  };
-
-  showSlide(currentIndex);
-</script>
+    </script>
     </div>
     <div class="adds">
 
@@ -149,5 +154,5 @@
     </div>
   </footer>
 </body>
-
+<script src="../../burger_script.js"></script>
 </html>
