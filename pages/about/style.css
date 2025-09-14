@@ -47,6 +47,7 @@ main {
   border-radius: 8px;
   text-decoration: none;
   transition: 0.3s;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
 .btn:hover {

@@ -1,9 +1,12 @@
- main {
+* {
+  box-sizing: border-box;
+}
+main {
      background: #fff;
      padding: 30px;
      border-radius: 16px;
      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-     max-width: 420px;
+     max-width: 500px;
      width: 100%;
      margin: 100px auto 0 auto;
  }
